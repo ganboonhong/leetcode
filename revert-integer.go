@@ -18,6 +18,7 @@ func reverse(x int) int {
 	xInStr := strconv.Itoa(x)
 	arr := strings.Split(xInStr, "")
 
+	// revert slice
     for i := len(arr)/2-1; i >= 0; i-- {
         opp := len(arr)-1-i
         arr[i], arr[opp] = arr[opp], arr[i]
@@ -25,6 +26,7 @@ func reverse(x int) int {
 
     if isNegative {
         arr = arr[:len(arr) - 1]
+        fmt.Println(arr)
         arr = append([]string{"-"}, arr...)
     }
 
@@ -40,6 +42,16 @@ func reverse(x int) int {
 }
 
 func main(){
-	r := reverse(1534236469) // since 9646324351 > math.MaxInt32(2147483647), it should return 0
-	fmt.Println(r)
+	var r int
+	// r = reverse(1534236469)
+	// fmt.Println(r) // since 9646324351 > math.MaxInt32(2147483647), it should return 0
+
+	// r = reverse(123)
+	// fmt.Println(r) // 321
+
+	r = reverse(-123)
+	fmt.Println(r) // -321
+
+	// r = reverse(120)
+	// fmt.Println(r) // 21
 }
